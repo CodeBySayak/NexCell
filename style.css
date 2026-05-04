@@ -768,6 +768,54 @@ body {
   }
 }
 
+/* ── CUSTOM CURSOR ── */
+.cursor-dot, .cursor-outline {
+  pointer-events: none;
+  position: fixed;
+  top: 0; left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-out, background-color 0.3s, border-color 0.3s, width 0.3s, height 0.3s;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-blue);
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--accent-blue);
+}
+
+/* Hover state for cursor */
+.cursor-hover .cursor-dot {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: #fff;
+}
+
+.cursor-hover .cursor-outline {
+  width: 60px;
+  height: 60px;
+  border-color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+/* Hide default cursor on devices that support hover */
+@media (hover: hover) and (pointer: fine) {
+  body, a, button, .nav-cta, .btn-primary, .btn-secondary, .social-link, .team-social, .review-form-card button, .form-star {
+    cursor: none;
+  }
+  .cursor-dot, .cursor-outline {
+    opacity: 1;
+  }
+}
+
 /* ── ANIMATIONS ── */
 .fade-up {
   opacity: 0; transform: translateY(30px);

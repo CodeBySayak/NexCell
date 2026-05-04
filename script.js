@@ -188,6 +188,32 @@ if (reviewForm) {
   });
 }
 
+// ── Custom Cursor ──
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorOutline = document.querySelector('.cursor-outline');
+
+window.addEventListener('mousemove', (e) => {
+  const posX = e.clientX;
+  const posY = e.clientY;
+
+  // Update dot position immediately
+  cursorDot.style.left = `${posX}px`;
+  cursorDot.style.top = `${posY}px`;
+
+  // Update outline position with a slight delay (CSS transition handles smoothness)
+  setTimeout(() => {
+    cursorOutline.style.left = `${posX}px`;
+    cursorOutline.style.top = `${posY}px`;
+  }, 50);
+});
+
+// Hover effects for cursor
+const hoverElements = document.querySelectorAll('a, button, .feature-card, .team-card, .review-card, .form-star');
+hoverElements.forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+});
+
 // ── Smooth scroll for CTA buttons ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', (e) => {
