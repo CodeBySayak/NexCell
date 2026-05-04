@@ -208,13 +208,19 @@ featureCards.forEach(card => {
     card.style.setProperty('--mouse-x', `${x}px`);
     card.style.setProperty('--mouse-y', `${y}px`);
     
-    // Optional: 3D Tilt Effect
+    // 3D Tilt & Follow Effect
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    const rotateX = (y - centerY) / 10;
-    const rotateY = (centerX - x) / 10;
     
-    card.style.transform = `translateY(-8px) scale(1.02) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    // Rotation values
+    const rotateX = (centerY - y) / 12;
+    const rotateY = (x - centerX) / 12;
+    
+    // Translation (follow) values
+    const moveX = (x - centerX) / 15;
+    const moveY = (y - centerY) / 15;
+    
+    card.style.transform = `translate(${moveX}px, ${moveY - 10}px) scale(1.04) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   });
   
   card.addEventListener('mouseleave', () => {

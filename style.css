@@ -302,11 +302,12 @@ body {
   border-radius: 20px;
   padding: 2rem;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  overflow: hidden;
+  overflow: visible; /* Changed from hidden to allow depth shadows */
   z-index: 1;
   display: flex;
   flex-direction: column;
   height: 100%;
+  transform-style: preserve-3d;
 }
 
 .feature-card::before {
@@ -342,10 +343,11 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(74, 124, 255, 0.1), transparent 80%);
-  z-index: -1;
+  background: radial-gradient(300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.08), transparent 70%);
+  z-index: 2; /* Above content */
   opacity: 0;
   transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
 .feature-card:hover {
@@ -374,13 +376,15 @@ body {
   margin-bottom: 1.2rem;
   transition: all 0.4s ease;
   position: relative;
+  transform: translateZ(30px); /* 3D depth */
+  transform-style: preserve-3d;
 }
 
 .feature-card:hover .feature-icon {
   background: var(--feature-gradient);
   color: #fff;
-  transform: rotate(10deg) scale(1.1);
-  box-shadow: 0 0 20px rgba(74, 124, 255, 0.4);
+  transform: rotate(10deg) scale(1.1) translateZ(60px);
+  box-shadow: 0 15px 30px rgba(74, 124, 255, 0.4);
   border-color: transparent;
 }
 
@@ -391,6 +395,7 @@ body {
   background: linear-gradient(to right, #fff, #fff);
   -webkit-background-clip: text;
   transition: all 0.4s ease;
+  transform: translateZ(40px); /* 3D depth */
 }
 
 .feature-card:hover h3 {
@@ -403,6 +408,7 @@ body {
   font-size: 0.95rem;
   color: var(--text-secondary);
   line-height: 1.6;
+  transform: translateZ(20px); /* 3D depth */
 }
 
 /* ── EVENTS ── */
