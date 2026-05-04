@@ -21,9 +21,19 @@ hamburger.addEventListener('click', () => {
   }
 });
 
-// Close menu on link click
+// Close menu on link click (excluding dropdown triggers)
 navLinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
+  a.addEventListener('click', (e) => {
+    if (a.classList.contains('dropdown-trigger')) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const parent = a.parentElement;
+        const menu = parent.querySelector('.dropdown-menu');
+        parent.classList.toggle('active');
+        menu.classList.toggle('open');
+      }
+      return;
+    }
     navLinks.classList.remove('open');
     hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
   });
