@@ -249,19 +249,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// ── Show More Team Members ──
-const showMoreBtn = document.getElementById('showMoreBtn');
-if (showMoreBtn) {
-  showMoreBtn.addEventListener('click', () => {
-    const hiddenCards = document.querySelectorAll('.team-card.hidden-card');
-    hiddenCards.forEach(card => {
-      card.classList.remove('hidden-card');
-      card.classList.add('visible'); // Trigger fade-up
-    });
-    showMoreBtn.parentElement.style.display = 'none';
-  });
-}
-
 // ── Feature Cards Mouse Effect ──
 const featureCards = document.querySelectorAll('.feature-card');
 featureCards.forEach(card => {
