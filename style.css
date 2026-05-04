@@ -1428,3 +1428,32 @@ a, button, [role="button"], input, textarea, select {
   .team-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Show More Functionality ── */
+.hidden-card {
+  display: none !important;
+}
+
+.show-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.btn-show-more {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  color: #fff;
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-show-more:hover {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 163, 255, 0.2);
+}
