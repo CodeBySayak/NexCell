@@ -21,9 +21,19 @@ hamburger.addEventListener('click', () => {
   }
 });
 
-// Close menu on link click
+// Close menu on link click (excluding dropdown triggers)
 navLinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
+  a.addEventListener('click', (e) => {
+    if (a.classList.contains('dropdown-trigger')) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const parent = a.parentElement;
+        const menu = parent.querySelector('.dropdown-menu');
+        parent.classList.toggle('active');
+        menu.classList.toggle('open');
+      }
+      return;
+    }
     navLinks.classList.remove('open');
     hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
   });
@@ -43,10 +53,23 @@ window.addEventListener('scroll', () => {
 });
 
 // ── Scroll reveal ──
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+document.addEventListener('DOMContentLoaded', () => {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+});
 
 // ── Counter animation ──
 function animateCounters() {
@@ -68,21 +91,25 @@ function animateCounters() {
 const statsObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { animateCounters(); statsObserver.unobserve(e.target); } });
 }, { threshold: 0.3 });
-const statsRow = document.querySelector('.stats-row');
-if (statsRow) statsObserver.observe(statsRow);
+const statsGrid = document.querySelector('.stats-grid');
+if (statsGrid) statsObserver.observe(statsGrid);
 
 // ── Review form ──
 const formStars = document.querySelectorAll('.form-star');
+const ratingInput = document.getElementById('reviewRating');
 let selectedRating = 5;
+
 formStars.forEach((star, i) => {
   star.addEventListener('mouseenter', () => {
     formStars.forEach((s, j) => s.classList.toggle('active', j <= i));
   });
   star.addEventListener('click', () => {
     selectedRating = i + 1;
+    if (ratingInput) ratingInput.value = selectedRating;
     formStars.forEach((s, j) => s.classList.toggle('active', j <= i));
   });
 });
+
 const starsContainer = document.querySelector('.form-stars');
 if (starsContainer) {
   starsContainer.addEventListener('mouseleave', () => {
@@ -91,30 +118,128 @@ if (starsContainer) {
 }
 
 const reviewForm = document.getElementById('reviewForm');
+const formStatus = document.getElementById('formStatus');
+
 if (reviewForm) {
-  reviewForm.addEventListener('submit', (e) => {
+  reviewForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    
+    const submitBtn = reviewForm.querySelector('.btn-submit');
+    const originalBtnText = submitBtn.innerHTML;
+    
+    // Get values for local update
     const name = document.getElementById('reviewName').value.trim();
+    const email = document.getElementById('reviewEmail').value.trim();
     const role = document.getElementById('reviewRole').value.trim();
     const text = document.getElementById('reviewText').value.trim();
-    if (!name || !text) { alert('Please fill in your name and review.'); return; }
+    
+    if (!name || !text || !email) {
+      alert('Please fill in all required fields.');
+      return;
+    }
 
-    const card = document.createElement('div');
-    card.className = 'review-card fade-up visible';
-    card.innerHTML = `
-      <div class="review-quote">❝</div>
-      <p class="review-text">"${text}"</p>
-      <div class="review-footer">
-        <div><div class="review-author">${name}</div><div class="review-role">${role || ''}</div></div>
-        <div class="review-stars">${'<span class="star">★</span>'.repeat(selectedRating)}${'<span class="star" style="color:var(--text-muted)">★</span>'.repeat(5 - selectedRating)}</div>
-      </div>
-    `;
-    document.querySelector('.reviews-list').prepend(card);
-    reviewForm.reset();
-    selectedRating = 5;
-    formStars.forEach(s => s.classList.add('active'));
+    // Prepare data for Formspree
+    const formData = new FormData(reviewForm);
+    
+    try {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending...';
+      
+      const response = await fetch(reviewForm.action, {
+        method: reviewForm.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        // Success feedback
+        if (formStatus) {
+          formStatus.textContent = "Thanks! Your review has been sent successfully.";
+          formStatus.className = "form-status success";
+        }
+        
+        reviewForm.reset();
+        selectedRating = 5;
+        if (ratingInput) ratingInput.value = 5;
+        formStars.forEach(s => s.classList.add('active'));
+        
+        setTimeout(() => {
+          if (formStatus) formStatus.textContent = "";
+        }, 5000);
+
+      } else {
+        const data = await response.json();
+        if (Object.hasOwn(data, 'errors')) {
+          throw new Error(data["errors"].map(error => error["message"]).join(", "));
+        } else {
+          throw new Error("Oops! There was a problem submitting your form");
+        }
+      }
+    } catch (error) {
+      if (formStatus) {
+        formStatus.textContent = error.message;
+        formStatus.className = "form-status error";
+      }
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+    }
   });
 }
+
+// ── Custom Cursor ──
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorOutline = document.querySelector('.cursor-outline');
+
+let mouseX = 0, mouseY = 0;
+let outlineX = 0, outlineY = 0;
+let isFirstMove = true;
+
+window.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+
+  if (isFirstMove) {
+    isFirstMove = false;
+    cursorDot.style.opacity = '1';
+    cursorOutline.style.opacity = '1';
+    outlineX = mouseX;
+    outlineY = mouseY;
+  }
+
+  cursorDot.style.left = `${mouseX}px`;
+  cursorDot.style.top = `${mouseY}px`;
+});
+
+function animateCursor() {
+  // Linear interpolation for smooth following
+  const lerpFactor = 0.15;
+  outlineX += (mouseX - outlineX) * lerpFactor;
+  outlineY += (mouseY - outlineY) * lerpFactor;
+
+  cursorOutline.style.left = `${outlineX}px`;
+  cursorOutline.style.top = `${outlineY}px`;
+
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Cursor Hover Effects (Delegation)
+let isHovering = false;
+document.addEventListener('mouseover', (e) => {
+  const shouldHover = !!e.target.closest('a, button, img, .feature-card, .team-card, .review-card, .form-star, .stat-card, .winner-card, .edition-badge');
+  
+  if (shouldHover !== isHovering) {
+    isHovering = shouldHover;
+    if (isHovering) {
+      document.body.classList.add('cursor-hover');
+    } else {
+      document.body.classList.remove('cursor-hover');
+    }
+  }
+});
 
 // ── Smooth scroll for CTA buttons ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -136,3 +261,35 @@ if (showMoreBtn) {
     showMoreBtn.parentElement.style.display = 'none';
   });
 }
+
+// ── Feature Cards Mouse Effect ──
+const featureCards = document.querySelectorAll('.feature-card');
+featureCards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Update mouse position variables for CSS spotlight
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+    
+    // 3D Tilt & Follow Effect
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    // Rotation values
+    const rotateX = (centerY - y) / 12;
+    const rotateY = (x - centerX) / 12;
+    
+    // Translation (follow) values
+    const moveX = (x - centerX) / 15;
+    const moveY = (y - centerY) / 15;
+    
+    card.style.transform = `translate(${moveX}px, ${moveY - 10}px) scale(1.04) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});

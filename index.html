@@ -1,457 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NexCell — Entrepreneurship Club | Rathinam Institute of Technology</title>
-  <meta name="description" content="NexCell is the premier Entrepreneurship Club of Rathinam Institute of Technology, Bangalore. We foster innovation, leadership, and startup spirit among students.">
+  <meta name="description"
+    content="NexCell is the premier Entrepreneurship Club of Rathinam Institute of Technology, Bangalore. We foster innovation, leadership, and startup spirit among students.">
   <link rel="stylesheet" href="style.css">
+  <script>
+    document.documentElement.classList.add('has-js');
+  </script>
+  <noscript>
+    <style>
+      .fade-up { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
 </head>
+
 <body>
 
-<!-- ═══ NAVBAR ═══ -->
-<nav class="navbar" id="navbar">
-  <a href="#" class="nav-logo">
-    <div class="nav-logo-icon">N</div>
-    <div class="nav-logo-text">NexCell<span>.</span></div>
-  </a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#events">Events</a></li>
-    <li><a href="#team">Team</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#location">Location</a></li>
-  </ul>
-  <a href="#reviews" class="nav-cta">Leave a review</a>
-  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-logo">
+      <img src="https://i.ibb.co/LXTydtj1/Nex.png" alt="NexCell" class="logo-img">
+      <div class="nav-logo-text">NexCell<span>.</span></div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li class="nav-dropdown">
+        <a href="javascript:void(0)" class="dropdown-trigger">Events <span class="dropdown-icon">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#upcoming-events">Upcoming Events</a></li>
+          <li><a href="#events">Past Events</a></li>
+        </ul>
+      </li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#location">Location</a></li>
+    </ul>
+    <a href="#reviews" class="nav-cta">Leave a review</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-<!-- ═══ HERO ═══ --> 
-<section class="hero" id="hero">
-  <div class="hero-content">
-    <div class="hero-text fade-up">
-      <span class="hero-label">🚀 Entrepreneurship Club</span>
-      <h1 class="hero-title">Where students become <span class="italic">entrepreneurs</span></h1>
-      <p class="hero-desc"><span class="text-white">NexCell</span> is the entrepreneurship engine of Mirai School of Technology, Bangalore — a launchpad for <span class="highlight-cyan">ideation</span>, <span class="highlight-blue">prototyping</span>, and <span class="highlight-gold">founder-grade pitching</span>. We build the muscle to turn campus ideas into real ventures.</p>
-      <div class="hero-buttons">
-        <a href="#about" class="btn-primary">Learn More</a>
-        <a href="#events" class="btn-secondary">Our Events</a>
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-text fade-up">
+        <span class="hero-label">
+          <svg class="hero-label-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+            <path d="M9 12H4s.55-3.03 2-5c1.62-2.2 5-3 5-3"></path>
+            <path d="M12 15v5s3.03-.55 5-2c2.2-1.62 3-5 3-5"></path>
+          </svg>
+          Entrepreneurship Club
+        </span>
+        <h1 class="hero-title">Where students become <span class="italic">entrepreneurs</span></h1>
+        <p class="hero-desc"><span class="text-white">NexCell</span> is the entrepreneurship engine of Mirai School of
+          Technology, Bangalore — a launchpad for <span class="highlight-cyan">ideation</span>, <span
+            class="highlight-blue">prototyping</span>, and <span class="highlight-gold">founder-grade pitching</span>.
+          We build the muscle to turn campus ideas into real ventures.</p>
+        <div class="hero-buttons">
+          <a href="#about" class="btn-primary">Learn More</a>
+          <a href="#events" class="btn-secondary">Our Events</a>
+        </div>
       </div>
-    </div>
-    <div class="hero-images fade-up">
-      <div class="hero-img stack-back"><img src="images/hero_2.png" alt="NexCell Event"></div>
-      <div class="hero-img stack-front"><img src="images/ideathonup1.png" alt="Mirai 0-1 Ideathon"></div>
-      <div class="event-badge">
-        <div class="badge-dot"></div>
-        <div class="badge-text">
-          <span class="badge-label">LATEST</span>
-          <span class="badge-title">Mirai 0-1 Ideathon · 2025</span>
+      <div class="hero-images fade-up">
+        <div class="hero-img stack-back"><img src="images/hero_2.png" alt="NexCell Event"></div>
+        <div class="hero-img stack-front"><img src="images/ideathonup1.png" alt="Mirai 0-1 Ideathon"></div>
+        <div class="event-badge">
+          <div class="badge-dot"></div>
+          <div class="badge-text">
+            <span class="badge-label">LATEST</span>
+            <span class="badge-title">Mirai 0-1 Ideathon · 2025</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ═══ TICKER ═══ -->
-<div class="ticker-section">
-  <div class="ticker-wrapper">
-    <div class="ticker-content">
-      <span>PROTOTYPE <i class="dot"></i></span>
-      <span>PITCH <i class="dot"></i></span>
-      <span>BUILD <i class="dot"></i></span>
-      <span>SHIP <i class="dot"></i></span>
-      <span>REPEAT <i class="dot"></i></span>
-      <span>INNOVATE <i class="dot"></i></span>
-      <span>LEAD <i class="dot"></i></span>
-      <span>IDEATE <i class="dot"></i></span>
-      <!-- Duplicate for seamless scroll -->
-      <span>PROTOTYPE <i class="dot"></i></span>
-      <span>PITCH <i class="dot"></i></span>
-      <span>BUILD <i class="dot"></i></span>
-      <span>SHIP <i class="dot"></i></span>
-      <span>REPEAT <i class="dot"></i></span>
-      <span>INNOVATE <i class="dot"></i></span>
-      <span>LEAD <i class="dot"></i></span>
-      <span>IDEATE <i class="dot"></i></span>
+  <!-- ═══ TICKER ═══ -->
+  <div class="ticker-section">
+    <div class="ticker-wrapper">
+      <div class="ticker-content">
+        <span>PROTOTYPE <i class="dot"></i></span>
+        <span>PITCH <i class="dot"></i></span>
+        <span>BUILD <i class="dot"></i></span>
+        <span>SHIP <i class="dot"></i></span>
+        <span>REPEAT <i class="dot"></i></span>
+        <span>INNOVATE <i class="dot"></i></span>
+        <span>LEAD <i class="dot"></i></span>
+        <span>IDEATE <i class="dot"></i></span>
+        <!-- Duplicate for seamless scroll -->
+        <span>PROTOTYPE <i class="dot"></i></span>
+        <span>PITCH <i class="dot"></i></span>
+        <span>BUILD <i class="dot"></i></span>
+        <span>SHIP <i class="dot"></i></span>
+        <span>REPEAT <i class="dot"></i></span>
+        <span>INNOVATE <i class="dot"></i></span>
+        <span>LEAD <i class="dot"></i></span>
+        <span>IDEATE <i class="dot"></i></span>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- ═══ ABOUT ═══ -->
-<section class="section" id="about">
-  <div class="section-inner">
-    <div class="about-grid">
+  <!-- ═══ ABOUT ═══ -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="fade-up">
+          <div class="section-label">About NexCell</div>
+          <h2 class="section-title">We don't teach <span class="italic">entrepreneurship.</span><br>We <span
+              class="italic">do</span> it.</h2>
+          <p class="section-desc">NexCell is the premier Entrepreneurship Club of Rathinam Institute of Technology,
+            Bangalore. We foster <strong>innovation</strong>, <strong>leadership</strong>, and the <strong>startup
+              spirit</strong> among students — turning passionate learners into future founders through hackathons,
+            workshops, founder talks, and live pitching arenas.</p>
+        </div>
+        <div class="about-right">
+          <div class="feature-card fade-up" style="transition-delay: 0.1s">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
+            <h3>Real-World Problem Solving</h3>
+            <p>Industry-relevant problem statements across diverse domains.</p>
+          </div>
+          <div class="feature-card fade-up" style="transition-delay: 0.2s">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"></path>
+                <path d="M9 18h6"></path>
+                <path d="M10 22h4"></path>
+              </svg>
+            </div>
+            <h3>Design-Driven Innovation</h3>
+            <p>Structured design thinking to craft user-centric solutions.</p>
+          </div>
+          <div class="feature-card fade-up" style="transition-delay: 0.3s">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                <path d="M9 12H4s.55-3.03 2-5c1.62-2.2 5-3 5-3"></path>
+                <path d="M12 15v5s3.03-.55 5-2c2.2-1.62 3-5 3-5"></path>
+              </svg>
+            </div>
+            <h3>Prototype-First Approach</h3>
+            <p>Translate ideas into interactive prototypes using modern AI tooling.</p>
+          </div>
+          <div class="feature-card fade-up" style="transition-delay: 0.4s">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="22"></line>
+                <line x1="8" y1="22" x2="16" y2="22"></line>
+              </svg>
+            </div>
+            <h3>Pitch Like a Founder</h3>
+            <p>Communicate ideas clearly, confidently, and convincingly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══ UPCOMING EVENTS ═══ -->
+  <section class="section upcoming-events" id="upcoming-events">
+    <div class="section-inner">
       <div class="fade-up">
-        <div class="section-label">About NexCell</div>
-        <h2 class="section-title">We don't teach <span class="italic">entrepreneurship.</span><br>We <span class="italic">do</span> it.</h2>
-        <p class="section-desc">NexCell is the premier Entrepreneurship Club of Rathinam Institute of Technology, Bangalore. We foster <strong>innovation</strong>, <strong>leadership</strong>, and the <strong>startup spirit</strong> among students — turning passionate learners into future founders through hackathons, workshops, founder talks, and live pitching arenas.</p>
+        <div class="section-label">Next Up</div>
+        <h2 class="section-title">Zero to <span class="italic">One.</span></h2>
+        <p class="section-desc">Join our exclusive speaker series where founders share the raw, unfiltered journey of
+          building something from nothing. Episode 01 features one of India's most prolific ecosystem builders.</p>
       </div>
-      <div class="about-right fade-up">
-        <div class="feature-card">
-          <div class="feature-icon">🎯</div>
-          <h3>Real-World Problem Solving</h3>
-          <p>Industry-relevant problem statements across diverse domains.</p>
+
+      <div class="upcoming-card fade-up">
+        <div class="upcoming-content">
+          <div class="event-meta">
+            <span class="event-tag">Episode 01</span>
+            <div class="event-date"><span>📅</span> 05th May, Tuesday</div>
+            <div class="event-time"><span>⏰</span> 4:00 PM onwards</div>
+          </div>
+          <h3 class="event-title">Cracking the Entrepreneurship Code</h3>
+          <p class="event-loc">📍 Mirai Collab Area, Rathinam Campus</p>
+
+          <div class="speaker-profile">
+            <div class="speaker-img">
+              <img src="https://i.ibb.co/Hf8VDXFg/Zero-to-One-Episode-1-1.png" alt="Ankur Jain">
+            </div>
+            <div class="speaker-info">
+              <h4 class="speaker-name">Ankur Jain</h4>
+              <p class="speaker-roles">Founder @ Sunstone & HOSTELFUND</p>
+              <div class="speaker-badges">
+                <span>Ex-Amazon Regional Head</span>
+                <span>Ex-Airtel Business Head</span>
+                <span>IMT Ghaziabad</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event-actions">
+            <p class="coming-soon">Coming Soon...</p>
+          </div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">💡</div>
-          <h3>Design-Driven Innovation</h3>
-          <p>Structured design thinking to craft user-centric solutions.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🚀</div>
-          <h3>Prototype-First Approach</h3>
-          <p>Translate ideas into interactive prototypes using modern AI tooling.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🎤</div>
-          <h3>Pitch Like a Founder</h3>
-          <p>Communicate ideas clearly, confidently, and convincingly.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🌐</div>
-          <h3>Entrepreneurial Mindset</h3>
-          <p>Skills beyond academics — creativity, leadership, strategy.</p>
+        <div class="upcoming-image">
+          <img src="https://i.ibb.co/3YFczNST/Zero-to-One-Episode-1.png" alt="Zero to One Poster">
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<hr class="section-divider">
+  <hr class="section-divider">
 
-<!-- ═══ EVENTS ═══ -->
-<section class="section events" id="events">
-  <div class="section-inner">
-    <div class="fade-up">
-      <div class="section-label">Past Events</div>
-      <h2 class="section-title">Our flagship — <span class="italic">Mirai 0→1</span></h2>
-      <p class="section-desc">Our flagship ideathon brought together 150+ student innovators across India to solve real-world problems through design thinking, AI prototyping, and founder-style pitching. 15 finalist teams competed live in a Shark Tank-style pitching arena.</p>
-      <span class="edition-badge">📅 2025 Edition</span>
+  <!-- ═══ EVENTS ═══ -->
+  <section class="section events" id="events">
+    <div class="section-inner">
+      <div class="events-header fade-up">
+        <div class="events-header-text">
+          <div class="section-label">Past Events</div>
+          <h2 class="section-title">Our flagship — <span class="italic">Mirai 0→1</span></h2>
+          <p class="section-desc">Our flagship ideathon brought together 150+ student innovators across India to solve
+            real-world problems through design thinking, AI prototyping, and founder-style pitching. 15 finalist teams
+            competed live in a Shark Tank-style pitching arena.</p>
+        </div>
+        <div class="edition-badge">
+          <span class="badge-icon">📅</span>
+          <span class="badge-text">2025 Edition</span>
+        </div>
+      </div>
+
+      <div class="stats-grid fade-up">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value" data-target="150+">0</div>
+            <div class="stat-label">Registrations</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value" data-target="15">0</div>
+            <div class="stat-label">Finalists</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value" data-target="₹15,000">₹0</div>
+            <div class="stat-label">Cash Prize</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="3" y1="15" x2="21" y2="15"></line>
+              <line x1="9" y1="3" x2="9" y2="21"></line>
+              <line x1="15" y1="3" x2="15" y2="21"></line>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value" data-target="8">0</div>
+            <div class="stat-label">Domains</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Winners -->
+      <div class="fade-up">
+        <h3 class="winners-title">🏆 Mirai 0→1 Winners</h3>
+        <div class="winners-grid">
+          <div class="winner-card">
+            <img src="https://nexcell.club/2nd%20Navras.jpeg" alt="Team Navras">
+            <div class="winner-info">
+              <div class="winner-place silver">2nd Place · Runner-up</div>
+              <div class="winner-name">Team Navras</div>
+            </div>
+          </div>
+          <div class="winner-card">
+            <img src="https://nexcell.club/1st%20Sip&Go.jpeg" alt="Team Sip&Go">
+            <div class="winner-info">
+              <div class="winner-place gold">1st Place · Grand Winner</div>
+              <div class="winner-name">Team Sip&Go</div>
+            </div>
+          </div>
+          <div class="winner-card">
+            <img src="https://nexcell.club/3rd%20.jpeg" alt="Team Zero Margin">
+            <div class="winner-info">
+              <div class="winner-place bronze">3rd Place · Second Runner-up</div>
+              <div class="winner-name">Team Zero Margin</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lookback -->
+      <div class="fade-up">
+        <div class="lookback-header">
+          <h3 class="lookback-title">👥 Event lookback</h3>
+        </div>
+
+        <!-- Row 1: Moving Left -->
+        <div class="lookback-track">
+          <div class="lookback-slider left">
+            <div class="lookback-img"><img src="https://nexcell.club/Event%20photo2.jpg" alt="Event"></div>
+            <div class="lookback-img"><img src="https://nexcell.club/Crousal%20image2.jpg" alt="Event"></div>
+            <div class="lookback-img"><img src="https://nexcell.club/Crousal%20image%205.jpg" alt="Event"></div>
+            <div class="lookback-img"><img src="https://nexcell.club/Event%20photo3.JPG" alt="Event"></div>
+            <!-- Duplicates -->
+            <div class="lookback-img"><img src="https://nexcell.club/Event%20photo2.jpg" alt="Event"></div>
+            <div class="lookback-img"><img src="https://nexcell.club/Crousal%20image2.jpg" alt="Event"></div>
+            <div class="lookback-img"><img src="https://nexcell.club/Crousal%20image%205.jpg" alt="Event"></div>
+            <div class="lookback-img"><img src="https://nexcell.club/Event%20photo3.JPG" alt="Event"></div>
+          </div>
+        </div>
+
+        <!-- Row 2: Moving Right -->
+        <div class="lookback-track">
+          <div class="lookback-slider right">
+            <div class="lookback-img"><img src="https://nexcell.club/Crousal%20image3.jpg" alt="Event"></div>
+            <div class="lookback-img"><img src="https://nexcell.club/Event%20photo%205.jpg" alt="Event"></div>
+            <div class="lookback-img"><img src="https://nexcell.club/Crousal%20image%204.jpg" alt="Event"></div>
+            <div class="lookback-img"><img src="https://nexcell.club/Crousal_image.jpg" alt="Event"></div>
+            <!-- Duplicates -->
+            <div class="lookback-img"><img src="https://nexcell.club/Crousal%20image3.jpg" alt="Event"></div>
+            <div class="lookback-img"><img src="https://nexcell.club/Event%20photo%205.jpg" alt="Event"></div>
+            <div class="lookback-img"><img src="https://nexcell.club/Crousal%20image%204.jpg" alt="Event"></div>
+            <div class="lookback-img"><img src="https://nexcell.club/Crousal_image.jpg" alt="Event"></div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="stats-row fade-up">
-      <div class="stat-card">
-        <div class="stat-value" data-target="150+">0</div>
-        <div class="stat-label">Registrations</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value" data-target="15">0</div>
-        <div class="stat-label">Finalists</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value" data-target="₹15,000">₹0</div>
-        <div class="stat-label">Cash Prize Pool</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value" data-target="8">0</div>
-        <div class="stat-label">Domains</div>
-      </div>
-    </div>
+  <hr class="section-divider">
 
-    <!-- Winners -->
-    <div class="fade-up">
-      <h3 class="winners-title">🏆 Mirai 0→1 Winners</h3>
-      <div class="winners-grid">
-        <div class="winner-card">
-          <img src="https://nexcell.club/2nd%20Navras.jpeg" alt="Team Navras">
-          <div class="winner-info">
-            <div class="winner-place silver">2nd Place · Runner-up</div>
-            <div class="winner-name">Team Navras</div>
+  <!-- ═══ TEAM ═══ -->
+  <section class="section" id="team">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="section-label">The Crew</div>
+        <h2 class="section-title">Meet the <span class="italic">builders</span> behind NexCell.</h2>
+        <p class="section-desc">A multidisciplinary core team of designers, developers, marketers and storytellers
+          running the show — and shipping the next big thing on campus.</p>
+      </div>
+      <div class="team-grid fade-up">
+        <div class="team-card">
+          <span class="team-badge">Club President</span>
+          <img src="images/team_member_1.png" alt="Saifuddin Malek">
+          <div class="team-info">
+            <div class="team-name">Saifuddin Malek</div>
+            <div class="team-role">Club President</div>
+            <div class="team-socials">
+              <a href="#" class="team-social" aria-label="LinkedIn">in</a>
+              <a href="#" class="team-social" aria-label="Portfolio">⌂</a>
+            </div>
           </div>
         </div>
-        <div class="winner-card">
-          <img src="https://nexcell.club/1st%20Sip&Go.jpeg" alt="Team Sip&Go">
-          <div class="winner-info">
-            <div class="winner-place gold">1st Place · Grand Winner</div>
-            <div class="winner-name">Team Sip&Go</div>
+        <div class="team-card">
+          <span class="team-badge">PR Head</span>
+          <img src="images/team_member_female1.png" alt="Anushka Dewangan">
+          <div class="team-info">
+            <div class="team-name">Anushka Dewangan</div>
+            <div class="team-role">PR Head</div>
+            <div class="team-socials">
+              <a href="#" class="team-social" aria-label="LinkedIn">in</a>
+              <a href="#" class="team-social" aria-label="Portfolio">⌂</a>
+            </div>
           </div>
         </div>
-        <div class="winner-card">
-          <img src="https://nexcell.club/3rd%20.jpeg" alt="Team Zero Margin">
-          <div class="winner-info">
-            <div class="winner-place bronze">3rd Place · Second Runner-up</div>
-            <div class="winner-name">Team Zero Margin</div>
+        <div class="team-card">
+          <span class="team-badge">Tech Head</span>
+          <img src="images/team_member_2.png" alt="Sapnil Biswas">
+          <div class="team-info">
+            <div class="team-name">Sapnil Biswas</div>
+            <div class="team-role">Tech Head</div>
+            <div class="team-socials">
+              <a href="#" class="team-social" aria-label="LinkedIn">in</a>
+              <a href="#" class="team-social" aria-label="Portfolio">⌂</a>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Lookback -->
-    <div class="fade-up">
-      <div class="lookback-header">
-        <h3 class="lookback-title">👥 Event lookback</h3>
-        <div class="lookback-hint">Hover to pause</div>
-      </div>
-      
-      <!-- Row 1: Moving Left -->
-      <div class="lookback-track">
-        <div class="lookback-slider left">
-          <div class="lookback-img"><img src="https://nexcell.club/Event%20photo2.jpg" alt="Event"></div>
-          <div class="lookback-img"><img src="https://nexcell.club/Crousal%20image2.jpg" alt="Event"></div>
-          <div class="lookback-img"><img src="https://nexcell.club/Crousal%20image%205.jpg" alt="Event"></div>
-          <div class="lookback-img"><img src="https://nexcell.club/Event%20photo3.JPG" alt="Event"></div>
-          <!-- Duplicates -->
-          <div class="lookback-img"><img src="https://nexcell.club/Event%20photo2.jpg" alt="Event"></div>
-          <div class="lookback-img"><img src="https://nexcell.club/Crousal%20image2.jpg" alt="Event"></div>
-          <div class="lookback-img"><img src="https://nexcell.club/Crousal%20image%205.jpg" alt="Event"></div>
-          <div class="lookback-img"><img src="https://nexcell.club/Event%20photo3.JPG" alt="Event"></div>
-        </div>
-      </div>
-
-      <!-- Row 2: Moving Right -->
-      <div class="lookback-track">
-        <div class="lookback-slider right">
-          <div class="lookback-img"><img src="https://nexcell.club/Crousal%20image3.jpg" alt="Event"></div>
-          <div class="lookback-img"><img src="https://nexcell.club/Event%20photo%205.jpg" alt="Event"></div>
-          <div class="lookback-img"><img src="https://nexcell.club/Crousal%20image%204.jpg" alt="Event"></div>
-          <div class="lookback-img"><img src="https://nexcell.club/Crousal_image.jpg" alt="Event"></div>
-          <!-- Duplicates -->
-          <div class="lookback-img"><img src="https://nexcell.club/Crousal%20image3.jpg" alt="Event"></div>
-          <div class="lookback-img"><img src="https://nexcell.club/Event%20photo%205.jpg" alt="Event"></div>
-          <div class="lookback-img"><img src="https://nexcell.club/Crousal%20image%204.jpg" alt="Event"></div>
-          <div class="lookback-img"><img src="https://nexcell.club/Crousal_image.jpg" alt="Event"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="section-divider">
-
-<!-- ═══ TEAM ═══ -->
-<section class="section" id="team">
-  <div class="section-inner">
-    <div class="fade-up">
-      <div class="section-label">The Crew</div>
-      <h2 class="section-title">Meet the <span class="italic">builders</span> behind NexCell.</h2>
-      <p class="section-desc">A multidisciplinary core team of designers, developers, marketers and storytellers running the show — and shipping the next big thing on campus.</p>
-    </div>
-
-
-    <!-- saifuuu -->
-    <div class="team-grid fade-up">
-      <div class="team-card">
-        <span class="team-badge">Club President</span>
-        <!-- <img src="https://ibb.co/hJ09bwzQ" alt="Saifuddin Malek"> -->
-   <img src="https://i.ibb.co/Q30QLtwS/saifu.jpg" alt="saifu">
-        <div class="team-info">
-          <div class="team-name">Saifuddin Malek</div>
-          <div class="team-role">Club President</div>
-          <div class="team-socials">
-            <a href="https://www.linkedin.com/in/saifuddin-malek/" class="team-social" aria-label="LinkedIn">in</a>
-            <a href="https://github.com/SaifuddinM23" class="team-social" aria-label="Github">⌂</a>
+        <div class="team-card">
+          <span class="team-badge">Creative Head</span>
+          <img src="images/team_member_female2.png" alt="Akshara P">
+          <div class="team-info">
+            <div class="team-name">Akshara P</div>
+            <div class="team-role">Creative Head</div>
+            <div class="team-socials">
+              <a href="#" class="team-social" aria-label="LinkedIn">in</a>
+              <a href="#" class="team-social" aria-label="Portfolio">⌂</a>
+            </div>
           </div>
         </div>
-      </div>
-
-
-
-      <!-- rudraaa -->
-      <div class="team-card">
-        <span class="team-badge">Club Vice President</span>
-        <!-- <img src="images/team_member_female1.png" alt="Anushka Dewangan"> -->
-          <img src="https://i.ibb.co/bM6brMm9/rudra.jpg" alt="rudra">
-        <div class="team-info">
-          <div class="team-name">Rudranil Acharjee</div>
-          <div class="team-role">Club Vice President</div>
-          <div class="team-socials">
-            <a href="https://www.linkedin.com/in/anushka-dewangan/?skipRedirect=true" class="team-social" aria-label="LinkedIn">in</a>
-            <a href="https://github.com/Rudranil6969" class="team-social" aria-label="Github">⌂</a>
+        <div class="team-card">
+          <span class="team-badge">Design Head</span>
+          <img src="images/team_member_male2.png" alt="Design Head">
+          <div class="team-info">
+            <div class="team-name">Rahul Menon</div>
+            <div class="team-role">Design Head</div>
+            <div class="team-socials">
+              <a href="#" class="team-social" aria-label="LinkedIn">in</a>
+              <a href="#" class="team-social" aria-label="Portfolio">⌂</a>
+            </div>
           </div>
         </div>
-      </div>
-
-
-      <!-- bosss -->
-       <div class="team-card">
-        <span class="team-badge">Treasurer</span>
-        <img src="https://i.ibb.co/HfhgNpbN/Lokesh.jpg" alt="Lokesh Kumar Sahu">
-        <div class="team-info">
-          <div class="team-name">Lokesh Kumar Sahu</div>
-          <div class="team-role">Treasurer</div>
-          <div class="team-socials">
-            <a href="https://www.linkedin.com/in/lokesh-kumar-sahu-2804cg/" class="team-social" aria-label="LinkedIn">in</a>
-            <a href="https://github.com/lokeshsahu2804-korba" class="team-social" aria-label="Github">⌂</a>
+        <div class="team-card">
+          <span class="team-badge">Marketing Head</span>
+          <img src="images/team_member_1.png" alt="Marketing Head">
+          <div class="team-info">
+            <div class="team-name">Priya Sharma</div>
+            <div class="team-role">Marketing Head</div>
+            <div class="team-socials">
+              <a href="#" class="team-social" aria-label="LinkedIn">in</a>
+              <a href="#" class="team-social" aria-label="Portfolio">⌂</a>
+            </div>
           </div>
         </div>
-      </div>
-
-
-      <!-- yashasya -->
-      <div class="team-card">
-        <span class="team-badge">Member</span>
-        <!-- <img src="https://i.ibb.co/WNYJrFg4/Manhoosss.jpg" alt="Yashasya Kodwani"> -->
-        <img src="https://i.ibb.co/sdg51mFL/yashasya.jpg" alt="yashasya" >
-        <div class="team-info">
-          <div class="team-name">Yashasya Kodwani</div>
-          <div class="team-role">Member</div>
-          <div class="team-socials">
-            <a href="https://www.linkedin.com/in/yashasya-kodwani-a60291358/" class="team-social" aria-label="LinkedIn">in</a>
-            <a href="https://github.com/yashasyaK" class="team-social" aria-label="Github">⌂</a>
+        <div class="team-card">
+          <span class="team-badge">Tech Lead</span>
+          <img src="images/team_member_male2.png" alt="Tech Lead">
+          <div class="team-info">
+            <div class="team-name">Keerthi Kumar</div>
+            <div class="team-role">Tech Lead</div>
+            <div class="team-socials">
+              <a href="#" class="team-social" aria-label="LinkedIn">in</a>
+              <a href="#" class="team-social" aria-label="Portfolio">⌂</a>
+            </div>
           </div>
         </div>
-      </div>
-
-
-              
-
-      <!-- sapnil -->
-      <div class="team-card">
-        <span class="team-badge">Member</span>
-        <img src="https://i.ibb.co/MkHn14QZ/Whats-App-Image-2025-12-12-at-19-24-40.jpg" alt="Sapnil Biswas">
-        <div class="team-info">
-          <div class="team-name">Sapnil Biswas</div>
-          <div class="team-role">Member</div>
-          <div class="team-socials">
-            <a href="https://www.linkedin.com/in/sapnil-biswas-992841403/" class="team-social" aria-label="LinkedIn">in</a>
-            <a href="https://github.com/sapnilbiswas" class="team-social" aria-label="Github">⌂</a>
-          </div>
-        </div>
-      </div>
-
-
-
-      <!-- akshara -->
-      <div class="team-card">
-        <span class="team-badge">Member</span>
-        <img src="https://i.ibb.co/Fkb3Rc8j/Akshara.jpg" alt="Akshara P">
-        <div class="team-info">
-          <div class="team-name">Akshara P</div>
-          <div class="team-role">Member</div>
-          <div class="team-socials">
-            <a href="https://www.linkedin.com/in/akshara-p-441674381/" class="team-social" aria-label="LinkedIn">in</a>
-            <a href="https://github.com/vasakb" class="team-social" aria-label="Github">⌂</a>
-          </div>
-        </div>
-      </div>
-
-
-      
-    <!-- jhalak -->
-      <div class="team-card">
-        <span class="team-badge">Member</span>
-        <!-- <img src="images/team_member_male2.png" alt="Design Head"> -->
-       <img src="https://i.ibb.co/RnxWy3N/charu1234.jpg" alt="Jhalak">
-   
-        <div class="team-info">
-          <div class="team-name">Jhalak Yadav</div>
-          <div class="team-role">Member</div>
-          <div class="team-socials">
-            <a href="https://www.linkedin.com/in/jhalak-yadav-0b17b32b5/" class="team-social" aria-label="LinkedIn">in</a>
-            <a href="https://github.com/jhalak101205-cpu" class="team-social" aria-label="Github">⌂</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- anushka -->
-      <div class="team-card">
-        <span class="team-badge">Member</span>
-        <img src="https://i.ibb.co/B2bYDnJd/Anushka-Dewangan.jpg" alt="Marketing Head">
-        <div class="team-info">
-          <div class="team-name">Anushka Dewangan</div>
-          <div class="team-role">Member</div>
-          <div class="team-socials">
-            <a href="https://www.linkedin.com/in/anushka-dewangan/" class="team-social" aria-label="LinkedIn">in</a>
-            <a href="https://github.com/anushkadewangan08102006" class="team-social" aria-label="Github">⌂</a>
-          </div>
-        </div>
-      </div>
-
-            <!-- pinank -->
-               <div class="team-card hidden-card">
-        <span class="team-badge">Member</span>
-        <img src="https://i.ibb.co/sdmcQX7J/Pianak-Shah.jpg" alt="Marketing Head">
-        <div class="team-info">
-          <div class="team-name">Pinank Shah</div>
-          <div class="team-role">Member</div>
-          <div class="team-socials">
-            <a href="https://www.linkedin.com/in/anushka-dewangan/" class="team-social" aria-label="LinkedIn">in</a>
-            <a href="https://github.com/pinankshah8-Aa" class="team-social" aria-label="Github">⌂</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- prateek -->
-
-      <div class="team-card hidden-card">
-        <span class="team-badge">Member</span>
-        <img src="https://i.ibb.co/BH9HJvgc/Prateek.jpg" alt="Tech Lead">
-        <div class="team-info">
-          <div class="team-name">Prateek Deep Das</div>
-          <div class="team-role">Member</div>
-          <div class="team-socials">
-            <a href="https://www.linkedin.com/in/prateek-deep-das/" class="team-social" aria-label="LinkedIn">in</a>
-            <a href="https://github.com/prateek1970" class="team-social" aria-label="Github">⌂</a>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- sayak -->
-      <div class="team-card hidden-card">
-        <span class="team-badge">Member</span>
-        <!-- <img src="https://i.ibb.co/BH9HJvgc/Prateek.jpg" alt="Tech Lead"> -->
-        <img src="https://i.ibb.co/F4pnQ2p7/sayak.jpg" alt="sayak">
-        <div class="team-info">
-          <div class="team-name">Sayak Ghosh</div>
-          <div class="team-role">Member</div>
-          <div class="team-socials">
-            <a href="https://www.linkedin.com/in/sayak-ghosh-cs-ai-cyber/" class="team-social" aria-label="LinkedIn">in</a>
-            <a href="https://github.com/CodeBySayak" class="team-social" aria-label="Github">⌂</a>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- harsh -->
-      <div class="team-card hidden-card">
-        <span class="team-badge">Member</span>
-        <!-- <img src="https://i.ibb.co/BH9HJvgc/Prateek.jpg" alt="Tech Lead"> -->
-   <img src="https://i.ibb.co/JjJ32TWV/Screenshot-2026-05-04-at-7-55-18-PM.png" alt="Screenshot 2026 05 04 at 7 55 18 PM">
-        <div class="team-info">
-          <div class="team-name">Harsh Kholi</div>
-          <div class="team-role">Member</div>
-          <div class="team-socials">
-            <a href="https://www.linkedin.com/in/koliharsh/" class="team-social" aria-label="LinkedIn">in</a>
-            <a href="https://github.com/harshkoli1255" class="team-social" aria-label="Github">⌂</a>
-          </div>
-        </div>
-      </div>
-
-
-
-      <!-- keerthi -->
-      <div class="team-card hidden-card">
-        <span class="team-badge">Member</span>
-        <img src="https://i.ibb.co/0p8YDGBn/Keerthi.jpg" alt="Tech Lead">
-        <div class="team-info">
-          <div class="team-name">Keerthi Kumar</div>
-          <div class="team-role">Member</div>
-          <div class="team-socials">
-            <a href="https://www.linkedin.com/in/keerthi-kumar-r/" class="team-social" aria-label="LinkedIn">in</a>
-            <a href="https://github.com/KeerthiKumarR" class="team-social" aria-label="Github">⌂</a>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- krishna -->
-      <div class="team-card hidden-card">
-        <span class="team-badge">Member</span>
-        <img src="https://i.ibb.co/Kxqx1GtX/Krishna.jpg" alt="Content Writer">
-        <div class="team-info">
-          <div class="team-name">Krishna Negi</div>
-          <div class="team-role">Member</div>
-          <div class="team-socials">
-            <a href="https://www.linkedin.com/in/krishnanegi13/" class="team-social" aria-label="LinkedIn">in</a>
-            <a href="https://github.com/WKr1shna" class="team-social" aria-label="Github">⌂</a>
+        <div class="team-card">
+          <span class="team-badge">Content Writer</span>
+          <img src="images/team_member_2.png" alt="Content Writer">
+          <div class="team-info">
+            <div class="team-name">Krishna Negi</div>
+            <div class="team-role">Content Writer</div>
+            <div class="team-socials">
+              <a href="#" class="team-social" aria-label="LinkedIn">in</a>
+              <a href="#" class="team-social" aria-label="Portfolio">⌂</a>
+            </div>
+>>>>>>> theirs
           </div>
          
         </div>
       </div>
     </div>
+<<<<<<< ours
     <div class="show-more-container fade-up">
       <button id="showMoreBtn" class="btn-show-more">Show More Members</button>
     </div>
@@ -459,137 +481,242 @@
 
       
 </section>
+=======
+  </section>
+>>>>>>> theirs
 
-<hr class="section-divider">
+  <hr class="section-divider">
 
-<!-- ═══ REVIEWS ═══ -->
-<section class="section reviews" id="reviews">
-  <div class="section-inner">
-    <div class="fade-up">
-      <div class="section-label">Voices</div>
-      <h2 class="section-title">What students <span class="italic">say</span> about us.</h2>
-      <p class="section-desc">Honest takes from participants, mentors and members. Drop yours below — we read every single one.</p>
-    </div>
-    <div class="reviews-layout fade-up">
-      <div class="reviews-list" id="reviewsList">
-        <!-- Card 1 -->
-        <div class="review-card">
-          <div class="review-quote-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H5c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6zm10 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-3c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6z"/></svg>
-          </div>
-          <p class="review-text">"This is a test review from the subagent. The site is working perfectly!"</p>
-          <div class="review-footer">
-            <div class="review-info">
-              <div class="review-author">Browser Subagent</div>
-              <div class="review-role">Automated Tester</div>
-            </div>
-            <div class="review-stars">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="review-card">
-          <div class="review-quote-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H5c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6zm10 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-3c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6z"/></svg>
-          </div>
-          <p class="review-text">"This is an automated test review. The site looks great!"</p>
-          <div class="review-footer">
-            <div class="review-info">
-              <div class="review-author">E2E Tester</div>
-              <div class="review-role">QA Engineer</div>
-            </div>
-            <div class="review-stars">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="review-card">
-          <div class="review-quote-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H5c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6zm10 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-3c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6z"/></svg>
-          </div>
-          <p class="review-text">"Excellent club, very engaging community for builders!"</p>
-          <div class="review-footer">
-            <div class="review-info">
-              <div class="review-author">TEST_E2E_User</div>
-              <div class="review-role">QA</div>
-            </div>
-            <div class="review-stars">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Review Form -->
-      <div class="review-form-card">
-        <h3>Share your experience</h3>
-        <p class="form-hint">Help us build a better club. Reviews appear instantly.</p>
-        <form id="reviewForm">
-          <div class="form-group">
-            <label class="form-label" for="reviewName">Name</label>
-            <input class="form-input" type="text" id="reviewName" placeholder="Your name" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="reviewRole">Role / Affiliation (Optional)</label>
-            <input class="form-input" type="text" id="reviewRole" placeholder="e.g. CSE 3rd Year, Mirai 0–1 Finalist">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Rating</label>
-            <div class="form-stars">
-              <span class="form-star active">★</span>
-              <span class="form-star active">★</span>
-              <span class="form-star active">★</span>
-              <span class="form-star active">★</span>
-              <span class="form-star active">★</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="reviewText">Review</label>
-            <textarea class="form-textarea" id="reviewText" placeholder="Tell us about your experience with NexCell..." required></textarea>
-          </div>
-          <button type="submit" class="btn-submit">
-            Submit review 
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="section-divider">
-
-<!-- ═══ LOCATION ═══ -->
-<section class="section" id="location">
-  <div class="section-inner">
-    <div class="location-layout">
+  <!-- ═══ REVIEWS ═══ -->
+  <section class="section reviews" id="reviews">
+    <div class="section-inner">
       <div class="fade-up">
-        <div class="section-label">Find Us</div>
-        <h2 class="section-title">Our <span class="italic">campus.</span></h2>
-        <p class="section-desc">We're based at the <strong>Bangalore Campus</strong> of Rathinam Institute of Technology. Drop by during club hours — we love new ideas (and chai).</p>
-        <div class="location-address">
-          <div class="location-pin">📍</div>
-          <div class="location-address-text">Rathinam Institute of Technology — Bangalore Campus<br>Survey No. 137, Doddakammanahalli Main Rd, Ramanshree Nagar, South, Begur Hobli, Bengaluru, Karnataka 560076, India</div>
+        <div class="section-label">Voices</div>
+        <h2 class="section-title">What students <span class="italic">say</span> about us.</h2>
+        <p class="section-desc">Honest takes from participants, mentors and members. Drop yours below — we read every
+          single one.</p>
+      </div>
+      <div class="reviews-layout fade-up">
+        <div class="reviews-list" id="reviewsList">
+          <!-- Card 1 -->
+          <div class="review-card">
+            <div class="review-quote-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H5c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6zm10 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-3c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6z" />
+              </svg>
+            </div>
+            <p class="review-text">"The Mirai 0→1 Ideathon was a game-changer for me. From the intense brainstorming to
+              the final pitch in front of industry experts, the experience was surreal. NexCell really knows how to push
+              students to think like founders!"</p>
+            <div class="review-footer">
+              <div class="review-info">
+                <div class="review-author">Bhawika Saraf</div>
+                <div class="review-role">2nd Year CSE, Mirai 0–1 Runner-up</div>
+              </div>
+              <div class="review-stars">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                  class="star">★</span><span class="star">★</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="review-card">
+            <div class="review-quote-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H5c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6zm10 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-3c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6z" />
+              </svg>
+            </div>
+            <p class="review-text">"Being a part of NexCell has been the highlight of my college life. The community is
+              so supportive, and the focus on design-driven innovation has helped me look at problems from a completely
+              different perspective."</p>
+            <div class="review-footer">
+              <div class="review-info">
+                <div class="review-author">Jhalak Yadav</div>
+                <div class="review-role">1st Year AI/ML Student</div>
+              </div>
+              <div class="review-stars">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                  class="star">★</span><span class="star">★</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="review-card">
+            <div class="review-quote-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H5c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6zm10 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-3c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6z" />
+              </svg>
+            </div>
+            <p class="review-text">"Winning the Mirai 0-1 Ideathon was an incredible journey for Team Sip&Go. NexCell
+              provided us with the perfect platform to transform our raw idea into a working prototype. The mentorship
+              and the sheer energy of the event were unmatched!"</p>
+            <div class="review-footer">
+              <div class="review-info">
+                <div class="review-author">Prarthana Dutta S</div>
+                <div class="review-role">Mirai 0–1 Grand Winner</div>
+              </div>
+              <div class="review-stars">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                  class="star">★</span><span class="star">★</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review Form -->
+        <div class="review-form-card">
+          <h3>Share your experience</h3>
+          <p class="form-hint">Help us build a better club. Reviews are sent to our team via email.</p>
+          <form id="reviewForm" action="https://formspree.io/f/xkoyjklz" method="POST">
+            <div class="form-group">
+              <label class="form-label" for="reviewName">Name</label>
+              <input class="form-input" type="text" id="reviewName" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reviewEmail">Email Address</label>
+              <input class="form-input" type="email" id="reviewEmail" name="email" placeholder="your@email.com"
+                required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reviewRole">Role / Affiliation (Optional)</label>
+              <input class="form-input" type="text" id="reviewRole" name="role"
+                placeholder="e.g. CSE 3rd Year, Mirai 0–1 Finalist">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Rating</label>
+              <div class="form-stars">
+                <span class="form-star active">★</span>
+                <span class="form-star active">★</span>
+                <span class="form-star active">★</span>
+                <span class="form-star active">★</span>
+                <span class="form-star active">★</span>
+              </div>
+              <input type="hidden" name="rating" id="reviewRating" value="5">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reviewText">Review</label>
+              <textarea class="form-textarea" id="reviewText" name="message"
+                placeholder="Tell us about your experience with NexCell..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              Submit review
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+            <div id="formStatus" class="form-status"></div>
+          </form>
         </div>
       </div>
-      <div class="location-map fade-up">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.0!2d77.63!3d12.88!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae150!2sRathinam+Institute+of+Technology!5e0!3m2!1sen!2sin!4v1" allowfullscreen="" loading="lazy" title="NexCell Campus Location"></iframe>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══ LOCATION ═══ -->
+  <section class="section" id="location">
+    <div class="section-inner">
+      <div class="location-layout">
+        <div class="fade-up">
+          <div class="section-label">Find Us</div>
+          <h2 class="section-title">Our <span class="italic">campus.</span></h2>
+          <p class="section-desc">We're based at the <strong>Bangalore Campus</strong> of Rathinam Institute of
+            Technology. Drop by during club hours — we love new ideas (and chai).</p>
+          <div class="location-address">
+            <div class="location-pin">📍</div>
+            <div class="location-address-text">Rathinam Institute of Technology — Bangalore Campus<br>Survey No. 137,
+              Doddakammanahalli Main Rd, Ramanshree Nagar, South, Begur Hobli, Bengaluru, Karnataka 560076, India</div>
+          </div>
+        </div>
+        <div class="location-map fade-up">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.7715322690988!2d77.60235817467695!3d12.858027787447032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6b20ff8b9163%3A0x408dadb3874c45cc!2sRathinam%20Institutions!5e0!3m2!1sen!2sin!4v1777903664487!5m2!1sen!2sin"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ═══ FOOTER ═══ -->
+ <!-- ═══ FOOTER ═══ -->
 <footer class="footer">
   <div class="footer-inner">
-    <p>© 2025 NexCell — Rathinam Institute of Technology, Bangalore. Built with ❤️ by the NexCell tech team.</p>
+    <div class="footer-grid">
+      <!-- Column 1: Brand -->
+      <div class="footer-col brand fade-up">
+        <a href="#" class="nav-logo">
+          <img src="https://i.ibb.co/LXTydtj1/Nex.png" alt="NexCell" class="logo-img">
+          <div class="nav-logo-text">NexCell<span>.</span></div>
+        </a>
+        <p class="footer-description">
+          Empowering the next generation of founders at Rathinam Institute of Technology. We turn campus ideas into real-world ventures through innovation, leadership, and hands-on building.
+        </p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/nexcellclub/" class="social-link" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a href="https://www.instagram.com/nexcell_mirai?igsh=MTM4enN2YnlpZTUzOA==" class="social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <!-- <a href="#" class="social-link" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+          </a> -->
+        </div>
+      </div>
+
+      <!-- Column 2: Navigation -->
+      <div class="footer-col links fade-up">
+        <h4 class="footer-title">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#events">Flagship Events</a></li>
+          <li><a href="#team">Core Team</a></li>
+          <li><a href="#reviews">Testimonials</a></li>
+          <li><a href="#location">Campus Location</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Contact -->
+      <div class="footer-col contact fade-up">
+        <h4 class="footer-title">Contact</h4>
+        <ul class="footer-contact-list">
+          <li>
+            <span class="icon">📍</span>
+            <span>Survey No. 137, Doddakammanahalli Main Rd, Bengaluru</span>
+          </li>
+          <li>
+            <span class="icon">✉️</span>
+            <a href="mailto:nexcell_rathinam@msot.org">nexcell_rathinam@msot.org</a>
+          </li>
+          <li>
+            <span class="icon">💬</span>
+            <span>Open for collaborations</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="copyright">© 2026 NexCell — Rathinam Institute of Technology. All rights reserved.</p>
+        <p class="credits">Built with 💙 by the <span class="highlight">NexCell Tech Team</span></p>
+      </div>
+    </div>
   </div>
 </footer>
 
-<script src="script.js"></script>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
