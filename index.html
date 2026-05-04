@@ -20,7 +20,13 @@
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
-      <li><a href="#events">Events</a></li>
+      <li class="nav-dropdown">
+        <a href="javascript:void(0)" class="dropdown-trigger">Events <span class="dropdown-icon">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#upcoming-events">Upcoming Events</a></li>
+          <li><a href="#events">Past Events</a></li>
+        </ul>
+      </li>
       <li><a href="#team">Team</a></li>
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#location">Location</a></li>
@@ -124,6 +130,54 @@
             <h3>Entrepreneurial Mindset</h3>
             <p>Skills beyond academics — creativity, leadership, strategy.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ═══ UPCOMING EVENTS ═══ -->
+  <section class="section upcoming-events" id="upcoming-events">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="section-label">Next Up</div>
+        <h2 class="section-title">Zero to <span class="italic">One.</span></h2>
+        <p class="section-desc">Join our exclusive speaker series where founders share the raw, unfiltered journey of
+          building something from nothing. Episode 01 features one of India's most prolific ecosystem builders.</p>
+      </div>
+
+      <div class="upcoming-card fade-up">
+        <div class="upcoming-content">
+          <div class="event-meta">
+            <span class="event-tag">Episode 01</span>
+            <div class="event-date"><span>📅</span> 05th May, Tuesday</div>
+            <div class="event-time"><span>⏰</span> 4:00 PM onwards</div>
+          </div>
+          <h3 class="event-title">Cracking the Entrepreneurship Code</h3>
+          <p class="event-loc">📍 Mirai Collab Area, Rathinam Campus</p>
+
+          <div class="speaker-profile">
+            <div class="speaker-img">
+              <img src="https://i.ibb.co/Hf8VDXFg/Zero-to-One-Episode-1-1.png" alt="Ankur Jain">
+            </div>
+            <div class="speaker-info">
+              <h4 class="speaker-name">Ankur Jain</h4>
+              <p class="speaker-roles">Founder @ Sunstone & HOSTELFUND</p>
+              <div class="speaker-badges">
+                <span>Ex-Amazon Regional Head</span>
+                <span>Ex-Airtel Business Head</span>
+                <span>IMT Ghaziabad</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event-actions">
+            <a href="https://forms.gle/your-form-link" target="_blank" class="btn-primary">Register Now</a>
+          </div>
+        </div>
+        <div class="upcoming-image">
+          <img src="https://i.ibb.co/3YFczNST/Zero-to-One-Episode-1.png" alt="Zero to One Poster">
         </div>
       </div>
     </div>
@@ -436,11 +490,13 @@
             </div>
             <div class="form-group">
               <label class="form-label" for="reviewEmail">Email Address</label>
-              <input class="form-input" type="email" id="reviewEmail" name="email" placeholder="your@email.com" required>
+              <input class="form-input" type="email" id="reviewEmail" name="email" placeholder="your@email.com"
+                required>
             </div>
             <div class="form-group">
               <label class="form-label" for="reviewRole">Role / Affiliation (Optional)</label>
-              <input class="form-input" type="text" id="reviewRole" name="role" placeholder="e.g. CSE 3rd Year, Mirai 0–1 Finalist">
+              <input class="form-input" type="text" id="reviewRole" name="role"
+                placeholder="e.g. CSE 3rd Year, Mirai 0–1 Finalist">
             </div>
             <div class="form-group">
               <label class="form-label">Rating</label>
