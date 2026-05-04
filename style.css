@@ -1223,6 +1223,7 @@ a, button, [role="button"], input, textarea, select {
 
 .footer-contact-list li {
   display: flex;
+  align-items: flex-start;
   gap: 1rem;
   margin-bottom: 1.5rem;
   color: var(--text-secondary);
@@ -1230,7 +1231,10 @@ a, button, [role="button"], input, textarea, select {
 }
 
 .footer-contact-list li .icon {
-  font-size: 1.2rem;
+  color: var(--accent-blue);
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
 }
 
 .footer-contact-list a {
