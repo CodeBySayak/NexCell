@@ -53,10 +53,23 @@ window.addEventListener('scroll', () => {
 });
 
 // ── Scroll reveal ──
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+document.addEventListener('DOMContentLoaded', () => {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+});
 
 // ── Counter animation ──
 function animateCounters() {
@@ -78,8 +91,8 @@ function animateCounters() {
 const statsObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { animateCounters(); statsObserver.unobserve(e.target); } });
 }, { threshold: 0.3 });
-const statsRow = document.querySelector('.stats-row');
-if (statsRow) statsObserver.observe(statsRow);
+const statsGrid = document.querySelector('.stats-grid');
+if (statsGrid) statsObserver.observe(statsGrid);
 
 // ── Review form ──
 const formStars = document.querySelectorAll('.form-star');
@@ -216,11 +229,7 @@ animateCursor();
 // Cursor Hover Effects (Delegation)
 let isHovering = false;
 document.addEventListener('mouseover', (e) => {
-<<<<<<< HEAD
-  const shouldHover = !!e.target.closest('a, button, .feature-card, .team-card, .review-card, .form-star');
-=======
-  const shouldHover = !!e.target.closest('a, button, img, .feature-card, .team-card, .review-card, .form-star');
->>>>>>> 4b3fca5 (feat: enhance NexCell UI with premium custom cursor, updated brand logo, and styling refinements)
+  const shouldHover = !!e.target.closest('a, button, img, .feature-card, .team-card, .review-card, .form-star, .stat-card, .winner-card, .edition-badge');
   
   if (shouldHover !== isHovering) {
     isHovering = shouldHover;
