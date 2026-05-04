@@ -189,57 +189,58 @@ if (reviewForm) {
   });
 }
 
-// ── Custom Cursor ──
-const cursorDot = document.querySelector('.cursor-dot');
-const cursorOutline = document.querySelector('.cursor-outline');
+// ── Custom Cursor (desktop only) ──
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  const cursorDot = document.querySelector('.cursor-dot');
+  const cursorOutline = document.querySelector('.cursor-outline');
 
-let mouseX = 0, mouseY = 0;
-let outlineX = 0, outlineY = 0;
-let isFirstMove = true;
+  let mouseX = 0, mouseY = 0;
+  let outlineX = 0, outlineY = 0;
+  let isFirstMove = true;
 
-window.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 
-  if (isFirstMove) {
-    isFirstMove = false;
-    cursorDot.style.opacity = '1';
-    cursorOutline.style.opacity = '1';
-    outlineX = mouseX;
-    outlineY = mouseY;
-  }
-
-  cursorDot.style.left = `${mouseX}px`;
-  cursorDot.style.top = `${mouseY}px`;
-});
-
-function animateCursor() {
-  // Linear interpolation for smooth following
-  const lerpFactor = 0.15;
-  outlineX += (mouseX - outlineX) * lerpFactor;
-  outlineY += (mouseY - outlineY) * lerpFactor;
-
-  cursorOutline.style.left = `${outlineX}px`;
-  cursorOutline.style.top = `${outlineY}px`;
-
-  requestAnimationFrame(animateCursor);
-}
-animateCursor();
-
-// Cursor Hover Effects (Delegation)
-let isHovering = false;
-document.addEventListener('mouseover', (e) => {
-  const shouldHover = !!e.target.closest('a, button, img, .feature-card, .team-card, .review-card, .form-star, .stat-card, .winner-card, .edition-badge');
-  
-  if (shouldHover !== isHovering) {
-    isHovering = shouldHover;
-    if (isHovering) {
-      document.body.classList.add('cursor-hover');
-    } else {
-      document.body.classList.remove('cursor-hover');
+    if (isFirstMove) {
+      isFirstMove = false;
+      cursorDot.style.opacity = '1';
+      cursorOutline.style.opacity = '1';
+      outlineX = mouseX;
+      outlineY = mouseY;
     }
+
+    cursorDot.style.left = `${mouseX}px`;
+    cursorDot.style.top = `${mouseY}px`;
+  });
+
+  function animateCursor() {
+    const lerpFactor = 0.15;
+    outlineX += (mouseX - outlineX) * lerpFactor;
+    outlineY += (mouseY - outlineY) * lerpFactor;
+
+    cursorOutline.style.left = `${outlineX}px`;
+    cursorOutline.style.top = `${outlineY}px`;
+
+    requestAnimationFrame(animateCursor);
   }
-});
+  animateCursor();
+
+  // Cursor Hover Effects (Delegation)
+  let isHovering = false;
+  document.addEventListener('mouseover', (e) => {
+    const shouldHover = !!e.target.closest('a, button, img, .feature-card, .team-card, .review-card, .form-star, .stat-card, .winner-card, .edition-badge');
+    
+    if (shouldHover !== isHovering) {
+      isHovering = shouldHover;
+      if (isHovering) {
+        document.body.classList.add('cursor-hover');
+      } else {
+        document.body.classList.remove('cursor-hover');
+      }
+    }
+  });
+}
 
 // ── Smooth scroll for CTA buttons ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
