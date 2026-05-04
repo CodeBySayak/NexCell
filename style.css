@@ -447,6 +447,16 @@ body {
 }
 .btn-submit:hover { background: #3a6ce8; transform: translateY(-2px); box-shadow: 0 15px 30px rgba(74, 124, 255, 0.35); }
 
+.form-status {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  min-height: 1.4rem;
+  transition: all 0.3s;
+}
+.form-status.success { color: #10b981; }
+.form-status.error { color: #ef4444; }
+
 /* ── LOCATION ── */
 .location-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
 .location-map {

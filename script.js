@@ -73,16 +73,20 @@ if (statsRow) statsObserver.observe(statsRow);
 
 // ── Review form ──
 const formStars = document.querySelectorAll('.form-star');
+const ratingInput = document.getElementById('reviewRating');
 let selectedRating = 5;
+
 formStars.forEach((star, i) => {
   star.addEventListener('mouseenter', () => {
     formStars.forEach((s, j) => s.classList.toggle('active', j <= i));
   });
   star.addEventListener('click', () => {
     selectedRating = i + 1;
+    if (ratingInput) ratingInput.value = selectedRating;
     formStars.forEach((s, j) => s.classList.toggle('active', j <= i));
   });
 });
+
 const starsContainer = document.querySelector('.form-stars');
 if (starsContainer) {
   starsContainer.addEventListener('mouseleave', () => {
@@ -91,28 +95,96 @@ if (starsContainer) {
 }
 
 const reviewForm = document.getElementById('reviewForm');
+const formStatus = document.getElementById('formStatus');
+
 if (reviewForm) {
-  reviewForm.addEventListener('submit', (e) => {
+  reviewForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    
+    const submitBtn = reviewForm.querySelector('.btn-submit');
+    const originalBtnText = submitBtn.innerHTML;
+    
+    // Get values for local update
     const name = document.getElementById('reviewName').value.trim();
+    const email = document.getElementById('reviewEmail').value.trim();
     const role = document.getElementById('reviewRole').value.trim();
     const text = document.getElementById('reviewText').value.trim();
-    if (!name || !text) { alert('Please fill in your name and review.'); return; }
+    
+    if (!name || !text || !email) {
+      alert('Please fill in all required fields.');
+      return;
+    }
 
-    const card = document.createElement('div');
-    card.className = 'review-card fade-up visible';
-    card.innerHTML = `
-      <div class="review-quote">❝</div>
-      <p class="review-text">"${text}"</p>
-      <div class="review-footer">
-        <div><div class="review-author">${name}</div><div class="review-role">${role || ''}</div></div>
-        <div class="review-stars">${'<span class="star">★</span>'.repeat(selectedRating)}${'<span class="star" style="color:var(--text-muted)">★</span>'.repeat(5 - selectedRating)}</div>
-      </div>
-    `;
-    document.querySelector('.reviews-list').prepend(card);
-    reviewForm.reset();
-    selectedRating = 5;
-    formStars.forEach(s => s.classList.add('active'));
+    // Prepare data for Formspree
+    const formData = new FormData(reviewForm);
+    
+    try {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending...';
+      
+      const response = await fetch(reviewForm.action, {
+        method: reviewForm.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        // Local update
+        const card = document.createElement('div');
+        card.className = 'review-card fade-up visible';
+        card.innerHTML = `
+          <div class="review-quote-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H5c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6zm10 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-3c-1.25 0-2 .75-2 2v3c0 1.25.75 2 2 2h3c0 4-4 6-4 6z" />
+            </svg>
+          </div>
+          <p class="review-text">"${text}"</p>
+          <div class="review-footer">
+            <div class="review-info">
+              <div class="review-author">${name}</div>
+              <div class="review-role">${role || ''}</div>
+            </div>
+            <div class="review-stars">
+              ${'<span class="star">★</span>'.repeat(selectedRating)}${'<span class="star" style="color:var(--text-muted)">★</span>'.repeat(5 - selectedRating)}
+            </div>
+          </div>
+        `;
+        document.querySelector('.reviews-list').prepend(card);
+        
+        // Success feedback
+        if (formStatus) {
+          formStatus.textContent = "Thanks! Your review has been submitted.";
+          formStatus.className = "form-status success";
+        }
+        
+        reviewForm.reset();
+        selectedRating = 5;
+        if (ratingInput) ratingInput.value = 5;
+        formStars.forEach(s => s.classList.add('active'));
+        
+        setTimeout(() => {
+          if (formStatus) formStatus.textContent = "";
+        }, 5000);
+
+      } else {
+        const data = await response.json();
+        if (Object.hasOwn(data, 'errors')) {
+          throw new Error(data["errors"].map(error => error["message"]).join(", "));
+        } else {
+          throw new Error("Oops! There was a problem submitting your form");
+        }
+      }
+    } catch (error) {
+      if (formStatus) {
+        formStatus.textContent = error.message;
+        formStatus.className = "form-status error";
+      }
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+    }
   });
 }
 
