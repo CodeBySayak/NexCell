@@ -195,3 +195,35 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
   });
 });
+
+// ── Feature Cards Mouse Effect ──
+const featureCards = document.querySelectorAll('.feature-card');
+featureCards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Update mouse position variables for CSS spotlight
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+    
+    // 3D Tilt & Follow Effect
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    // Rotation values
+    const rotateX = (centerY - y) / 12;
+    const rotateY = (x - centerX) / 12;
+    
+    // Translation (follow) values
+    const moveX = (x - centerX) / 15;
+    const moveY = (y - centerY) / 15;
+    
+    card.style.transform = `translate(${moveX}px, ${moveY - 10}px) scale(1.04) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
